@@ -1,0 +1,13 @@
+digraph {
+	BB0 [label="<b>BB0|{0: CONSTANT #0|5: CONSTANT #1|16: CONSTANT #2}" shape=record]
+	BB1 [label="<b>BB1|{1: \<empty\>|2: FIRSTBLOCK|22: INPUTNUUM|23: SETPAR1 (22)|24: JSR (3)|25: OUTPUTNUM (24)|26: OUTPUTNEWLINE}" shape=record]
+	BB2 [label="<b>BB2|{3: \<empty\>|4: GETPAR1|6: CMP (4) (5)|7: BGE (6) (10)}" shape=record]
+	BB3 [label="<b>BB3|{8: \<empty\>|9: RETURN (4)|11: BRA (10)}" shape=record]
+	BB4 [label="<b>BB4|{10: \<empty\>|13: MINUS (4) (5)|14: SETPAR1 (13)|15: JSR (3)|17: MINUS (4) (16)|18: SETPAR1 (17)|19: JSR (3)|20: PLUS (15) (19)|21: RETURN (20)}" shape=record]
+	BB0 -> BB1 [label="fall-through"]
+	BB1 -> BB2 [label="func call"]
+	BB2 -> BB3 [label="fall-through"]
+	BB2 -> BB4 [label=b]
+	BB3 -> BB4 [label=b]
+	BB4 -> BB2 [label="func call"]
+}
